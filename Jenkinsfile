@@ -5,7 +5,7 @@ pipeline {
       agent any
       steps {
         sh 'pwd'
-        sh 'docker run -it --rm   maven mvn clean package  '
+        sh 'docker run -i --rm   maven mvn clean package  '
       }
     }
 
