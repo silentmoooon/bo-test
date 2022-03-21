@@ -7,5 +7,5 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 && apk del tzdata \
 && rm -rf /var/cache/apk/* /tmp/* /var/tmp/* $HOME/.cache
 
-COPY ./target/spring-test.jar ./app.jar
+COPY ./target/spring-test.jar /app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"] 
