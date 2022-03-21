@@ -1,11 +1,18 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage('compile') {
-       
+      agent {
+              docker {
+                  image 'maven:3.8.4-openjdk-17'
+                  args '-v $HOME/.m2:/root/.m2'
+                  args '-v $PWD:/usr/src/app'
+                  args '-w /usr/src/app'
+              }
+          }
       steps {
             echo "2. 代码编译打包"
-            sh 'podman run -it --rm -v /home/xiecan/.m2:/root/.m2 -v "$PWD:/usr/src/app" -w /usr/src/app maven:3.8.4-openjdk-17 mvn clean package -DskipTests'
+            sh ' mvn clean package -DskipTests'
         }
     }
 
