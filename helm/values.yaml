@@ -6,7 +6,7 @@ replicaCount: 2
 
 image:
   repository: 192.168.50.96:5000/spring-test
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
