@@ -21,12 +21,10 @@ pipeline {
       steps {
             echo "3. build"
             sh 'docker build -t 192.168.50.96:5000/spring-test:latest .'
-        }
-
-        steps {
             echo "4. push"
             sh 'docker push  192.168.50.96:5000/spring-test:latest'
         }
+ 
     }
 
     stage('deploy to k8s') {
