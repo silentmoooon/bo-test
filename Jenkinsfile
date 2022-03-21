@@ -10,7 +10,6 @@ pipeline {
     }
 
     stage('build image') {
-      agent any
       steps {
             echo "3. build"
             sh 'docker build -t 192.168.50.96:5000/spring-test:latest .'
@@ -23,7 +22,6 @@ pipeline {
     }
 
     stage('deploy to k8s') {
-      agent any
       steps {
             echo "5. deploy"
             sh 'helm upgrade -i helm/values.yaml spring-test ./heml'
