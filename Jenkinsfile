@@ -14,7 +14,7 @@ pipeline {
         }
     }
 
-    stage('build') {
+    stage('build image') {
       
       steps {
             echo "3. build"
@@ -27,11 +27,11 @@ pipeline {
         }
     }
 
-    stage('deploy') {
+    stage('deploy to k8s') {
       
       steps {
-            echo "3. deploy"
-            sh 'docker build -t 192.168.50.96:5000/spring-test:latest target/'
+            echo "5. deploy"
+            sh 'helm upgrade -i helm/values.yaml spring-test ./heml'
         }
 
         
