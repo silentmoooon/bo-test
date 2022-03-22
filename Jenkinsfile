@@ -30,7 +30,7 @@ pipeline {
     stage('deploy to k8s') {
       steps {
             echo "5. deploy"
-            sh 'helm upgrade -i -f helm/values.yaml spring-test ./helm'
+            sh 'helm upgrade -i --force -f helm/values.yaml spring-test ./helm'
         }
 
         
